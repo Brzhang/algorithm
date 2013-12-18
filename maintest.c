@@ -79,45 +79,45 @@ void main()
         }
     }
 
-    printArray(&iIntList, CONST_INT_LISTNUM);
+    printArray(iIntList, CONST_INT_LISTNUM);
 
 #ifdef _INSERTIONSORT_
-    InsertionSort(&iIntList, CONST_INT_LISTNUM);
+    InsertionSort(iIntList, CONST_INT_LISTNUM);
     
     printf("InsertionSort:\n");
-    printArray(&iIntList, CONST_INT_LISTNUM);
+    printArray(iIntList, CONST_INT_LISTNUM);
 #endif
 
 #ifdef _MERGESORT_
-    MergeSort(&iIntList, 0, CONST_INT_LISTNUM-1);
+    MergeSort(iIntList, 0, CONST_INT_LISTNUM-1);
 
     printf("MergeSort:\n");
-    printArray(&iIntList, CONST_INT_LISTNUM);
+    printArray(iIntList, CONST_INT_LISTNUM);
 #endif
 
 #ifdef _BUBBLESORT_
-    BubbleSort(&iIntList, CONST_INT_LISTNUM-1);
+    BubbleSort(iIntList, CONST_INT_LISTNUM-1);
 
     printf("BubbleSort:\n");
-    printArray(&iIntList, CONST_INT_LISTNUM);
+    printArray(iIntList, CONST_INT_LISTNUM);
 #endif
 
 #ifdef _HEAPSORT_
-    HeapSort(&iIntList, CONST_INT_LISTNUM);
+    HeapSort(iIntList, CONST_INT_LISTNUM);
 
     printf("HeapSort:\n");
-    printArray(&iIntList, CONST_INT_LISTNUM);
+    printArray(iIntList, CONST_INT_LISTNUM);
 #endif
 
 #ifdef _QUICKSORT_
-    QuickSort(&iIntList, 0, CONST_INT_LISTNUM-1);
+    QuickSort(iIntList, 0, CONST_INT_LISTNUM-1);
 
     printf("QuickSort:\n");
-    printArray(&iIntList, CONST_INT_LISTNUM);
+    printArray(iIntList, CONST_INT_LISTNUM);
 #endif
 
 #ifdef _FINDMAXSUBARRAY_
-    iSum = FindMaxSubArray(&iIntList, 0, CONST_INT_LISTNUM-1, &iStart, &iEnd);
+    iSum = FindMaxSubArray(iIntList, 0, CONST_INT_LISTNUM-1, &iStart, &iEnd);
     
     printf("Max subArray sum = %d, startIndex = %d, endIndex = %d,\n", iSum, iStart, iEnd);
 #endif
