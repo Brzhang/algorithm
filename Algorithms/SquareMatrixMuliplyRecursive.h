@@ -25,15 +25,12 @@ void SquareMatrixMultiplyRecursive(const Matrix _matrixA, const Matrix _matrixB,
     }
     else
     {
-        for (i = 0; i < _pResult->iRow; ++i)
+        for (i = 0; i < 2; ++i)
         {
-            for (j = 0; j < _pResult->iColumn; ++j)
+            for (j = 0; j < 2; ++j)
             {
-                for (k = 0; k < _pResult->iRow; ++k)
-                {
-                    //TODO: cut apart the matrix into sub matrix
-                    //_pResult->pData[i][j] = SquareMatrixMultiplyRecursive();
-                }            
+                //TODO: cut the matrix into sub matrix
+                //_pResult->pData[i][j] = SquareMatrixMultiplyRecursive();
             }        
         }    
     }
