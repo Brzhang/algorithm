@@ -5,6 +5,7 @@
 #define _INSERTIONSORT_
 #define _MERGESORT_
 #define _BUBBLESORT_
+#define _HEAPSORT_
 #define _QUICKSORT_
 #define _FINDMAXSUBARRAY_
 #define _SQUAREMATRIXMULTIPLY_
@@ -19,6 +20,10 @@
 
 #ifdef _BUBBLESORT_
 #include "Algorithms/BubbleSort.h"
+#endif
+
+#ifdef _HEAPSORT_
+#include "Algorithms/HeapSort.h"
 #endif
 
 #ifdef _QUICKSORT_
@@ -94,6 +99,13 @@ void main()
     BubbleSort(&iIntList, CONST_INT_LISTNUM-1);
 
     printf("BubbleSort:\n");
+    printArray(&iIntList, CONST_INT_LISTNUM);
+#endif
+
+#ifdef _HEAPSORT_
+    HeapSort(&iIntList, CONST_INT_LISTNUM);
+
+    printf("HeapSort:\n");
     printArray(&iIntList, CONST_INT_LISTNUM);
 #endif
 
