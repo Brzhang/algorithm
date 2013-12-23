@@ -1,6 +1,7 @@
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
+#include<string>
 
 /*! *************************Matrix**************************** */
 
@@ -25,10 +26,10 @@ void CreateMatrix(Matrix* _pmatrix, int iRow, int iColumn)
     _pmatrix->iRow = iRow;
     _pmatrix->iColumn = iColumn;
 
-    _pmatrix->pData = (int(**))malloc(_pmatrix->iRow * sizeof(int)); 
+    _pmatrix->pData = (int(**))malloc(_pmatrix->iRow * sizeof(int));
     for (i = 0; i < _pmatrix->iRow; ++i)
     {
-        _pmatrix->pData[i] = (int(*))malloc(_pmatrix->iColumn * sizeof(int)); 
+        _pmatrix->pData[i] = (int(*))malloc(_pmatrix->iColumn * sizeof(int));
         memset(_pmatrix->pData[i], 0, _pmatrix->iColumn* sizeof(int));
     }
 }
@@ -71,12 +72,12 @@ void copyValue(int* _pSrc, int* _pDst)
 void swapValue(int* _pValueA, int* _pValueB)
 {
     int iTemp = 0;
-    
+
     if (_pValueA == _pValueB)
     {
         return;
     }
-    
+
     copyValue(_pValueA,&iTemp);
     copyValue(_pValueB,_pValueA);
     copyValue(&iTemp,_pValueB);

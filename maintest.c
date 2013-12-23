@@ -7,48 +7,53 @@
 #define _BUBBLESORT_
 #define _HEAPSORT_
 #define _QUICKSORT_
+#define _COUNTINGSORT_
 #define _FINDMAXSUBARRAY_
 #define _SQUAREMATRIXMULTIPLY_
 
 #ifdef _INSERTIONSORT_
 #include "Algorithms/InstertionSort.h"
-#endif
+#endif // _INSERTIONSORT_
 
 #ifdef _MERGESORT_
 #include "Algorithms/MergeSort.h"
-#endif
+#endif // _MERGESORT_
 
 #ifdef _BUBBLESORT_
 #include "Algorithms/BubbleSort.h"
-#endif
+#endif // _BUBBLESORT_
 
 #ifdef _HEAPSORT_
 #include "Algorithms/HeapSort.h"
-#endif
+#endif // _HEAPSORT_
 
 #ifdef _QUICKSORT_
 #include "Algorithms/QuickSort.h"
-#endif
+#endif // _QUICKSORT_
+
+#ifdef _COUNTINGSORT_
+#include "Algorithms/CountingSort.h"
+#endif // _COUNTINGSORT_
 
 #ifdef _FINDMAXSUBARRAY_
 #include "Algorithms/FindMaxSubArray.h"
-#endif
+#endif // _FINDMAXSUBARRAY_
 
 #ifdef _SQUAREMATRIXMULTIPLY_
 #include "Algorithms/SquareMatrixMultiply.h"
 #define CONST_MATRIX_ROW   3
-#endif
+#endif // _SQUAREMATRIXMULTIPLY_
 
 #define CONST_INT_LISTNUM  10
 
-void main()
+int main()
 {
     int iIntList[CONST_INT_LISTNUM];
     int iStart = 0;
     int iEnd = 0;
     int iSum = 0;
 
-    int i = 0; 
+    int i = 0;
     int j = 0;
 
 #ifdef _SQUAREMATRIXMULTIPLY_
@@ -65,10 +70,10 @@ void main()
         {
             matrixA.pData[i][j] = 2;
             matrixB.pData[i][j] = 3;
-        }        
+        }
     }
-    
-#endif
+
+#endif // _SQUAREMATRIXMULTIPLY_
 
     for(i = 0; i < CONST_INT_LISTNUM; ++i)
     {
@@ -83,48 +88,61 @@ void main()
 
 #ifdef _INSERTIONSORT_
     InsertionSort(iIntList, CONST_INT_LISTNUM);
-    
+
     printf("InsertionSort:\n");
     printArray(iIntList, CONST_INT_LISTNUM);
-#endif
+#endif // _INSERTIONSORT_
 
 #ifdef _MERGESORT_
     MergeSort(iIntList, 0, CONST_INT_LISTNUM-1);
 
     printf("MergeSort:\n");
     printArray(iIntList, CONST_INT_LISTNUM);
-#endif
+#endif // _MERGESORT_
 
 #ifdef _BUBBLESORT_
     BubbleSort(iIntList, CONST_INT_LISTNUM-1);
 
     printf("BubbleSort:\n");
     printArray(iIntList, CONST_INT_LISTNUM);
-#endif
+#endif // _BUBBLESORT_
 
 #ifdef _HEAPSORT_
     HeapSort(iIntList, CONST_INT_LISTNUM);
 
     printf("HeapSort:\n");
     printArray(iIntList, CONST_INT_LISTNUM);
-#endif
+#endif // _HEAPSORT_
 
 #ifdef _QUICKSORT_
     QuickSort(iIntList, 0, CONST_INT_LISTNUM-1);
 
     printf("QuickSort:\n");
     printArray(iIntList, CONST_INT_LISTNUM);
-#endif
+#endif // _QUICKSORT_
+
+#ifdef _COUNTINGSORT_
+    for(i = 0; i < CONST_INT_LISTNUM; ++i)
+    {
+        iIntList[i] = rand()%100;
+    }
+    printArray(iIntList, CONST_INT_LISTNUM);
+
+    CountingSort(iIntList, CONST_INT_LISTNUM);
+
+    printf("Counting sort:\n");
+    printArray(iIntList, CONST_INT_LISTNUM);
+#endif // _COUNTINGSORT_
 
 #ifdef _FINDMAXSUBARRAY_
     iSum = FindMaxSubArray(iIntList, 0, CONST_INT_LISTNUM-1, &iStart, &iEnd);
-    
+
     printf("Max subArray sum = %d, startIndex = %d, endIndex = %d,\n", iSum, iStart, iEnd);
-#endif
+#endif // _FINDMAXSUBARRAY_
 
 #ifdef _SQUAREMATRIXMULTIPLY_
     SquareMatrixMultiply(matrixA, matrixB, &RetMatrix);
-    
+
     for(i = 0; i < matrixA.iRow; ++i)
     {
        printArray(RetMatrix.pData[i],matrixA.iColumn);
@@ -133,7 +151,7 @@ void main()
     ReleaseMatrix(&RetMatrix);
     ReleaseMatrix(&matrixA);
     ReleaseMatrix(&matrixB);
-#endif
+#endif // _SQUAREMATRIXMULTIPLY_
 
-    return;
+    return 0;
 }

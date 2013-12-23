@@ -71,7 +71,7 @@ void MaxHeapify(int* _pArraySrc, int _iLength, int _iIndex)
         swapValue(&_pArraySrc[_iIndex], &_pArraySrc[iLargestIndex]);
         MaxHeapify(_pArraySrc, _iLength, iLargestIndex);
     }
-} 
+}
 
 /*! build the array to be a heap (max-heap)
 
@@ -86,10 +86,10 @@ void BuildMaxHeap(int* _pArraySrc, int _iLength)
     for (i = _iLength/2; i > 0; --i)
     {
         MaxHeapify(_pArraySrc, _iLength, i-1);
-    }   
-} 
+    }
+}
 
-/*! build the array to be a heap (max-heap)
+/*! sort the array with heap sort
 
 @return NULL
 
@@ -107,7 +107,7 @@ void HeapSort(int* _pArraySrc, int _iLength)
         swapValue(&_pArraySrc[0], &_pArraySrc[i]);
         --_iLength;
         MaxHeapify(_pArraySrc, _iLength, 0);
-    }   
-} 
+    }
+}
 
 #endif
