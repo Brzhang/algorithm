@@ -26,6 +26,8 @@ int GetMaxItem(int* _pArraySrc, int _iLength)
 }
 
 /*! sort the array with counting sort
+    To use the counting sort, we assume that each of theninput elements is an integer in the range
+    0 to k, for some integer k.
 
 @return NULL
 
@@ -39,7 +41,7 @@ void CountingSort(int* _pArraySrc, int _iLength)
     int* pTmpArray = NULL;
     int* pSrcClone = NULL;
 
-    iMaxItem = GetMaxItem(_pArraySrc, _iLength);
+    iMaxItem = GetMaxItem(_pArraySrc, _iLength) + 1;
     pTmpArray = (int*)malloc(iMaxItem*sizeof(int));
     memset(pTmpArray, 0 ,iMaxItem*sizeof(int));
 
@@ -48,7 +50,7 @@ void CountingSort(int* _pArraySrc, int _iLength)
 
     for(i = 0; i < _iLength; ++i)
     {
-        ++pTmpArray[_pArraySrc[i]-1]; //count the same item
+        ++pTmpArray[_pArraySrc[i]]; //count the same item
     }
 
     for(i = 1; i < iMaxItem; ++i)
@@ -58,8 +60,8 @@ void CountingSort(int* _pArraySrc, int _iLength)
 
     for(i = _iLength - 1; i >= 0; --i)
     {
-        _pArraySrc[ pTmpArray[ pSrcClone[i]-1 ] - 1 ] = pSrcClone[i];
-        --pTmpArray[_pArraySrc[i]-1];
+        _pArraySrc[ pTmpArray[ pSrcClone[i] ] - 1 ] = pSrcClone[i];
+        --pTmpArray[_pArraySrc[i]];
     }
 
     free(pTmpArray);

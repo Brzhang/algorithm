@@ -126,6 +126,7 @@ int main()
     {
         iIntList[i] = rand()%100;
     }
+    iIntList[0] = 0;
     printArray(iIntList, CONST_INT_LISTNUM);
 
     CountingSort(iIntList, CONST_INT_LISTNUM);
